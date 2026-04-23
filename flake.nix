@@ -29,7 +29,8 @@
             chmod -R u+w "$tmp/src"
             cd "$tmp/src"
 
-            export SOPS_AGE_KEY_FILE="''${SOPS_AGE_KEY_FILE:-$HOME/.config/sops/age/resume-keys.txt}"
+            home_dir="$HOME"
+            export SOPS_AGE_KEY_FILE="''${SOPS_AGE_KEY_FILE:-$home_dir/.config/sops/age/resume-keys.txt}"
             just build
             cp build/main.pdf "$OLDPWD/resume.pdf"
           '');
