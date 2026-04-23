@@ -14,10 +14,10 @@
           type = "app";
           program = toString (pkgs.writeShellScript "build-resume" ''
             set -euo pipefail
-
             export PATH=${pkgs.lib.makeBinPath [
               pkgs.texliveFull
               pkgs.sops
+              pkgs.just
               pkgs.coreutils
               pkgs.bash
             ]}:$PATH
@@ -29,32 +29,15 @@
             chmod -R u+w "$tmp/src"
             cd "$tmp/src"
 
-            home_dir="$HOME"
-            key_file="''${SOPS_AGE_KEY_FILE:-$home_dir/.config/sops/age/resume-keys.txt}"
-
-            echo "Using key file: $key_file"
-            ls -l data || true
-
-            if [ -f "$key_file" ]; then
-              if SOPS_AGE_KEY_FILE="$key_file" sops --decrypt data/personal.tex.age > data/personal.tex; then
-                echo "Building private resume"
-              else
-                echo "Decryption failed"
-                rm -f data/personal.tex
-                exit 1
-              fi
-            else
-              echo "Key file not found: $key_file"
-              rm -f data/personal.tex
-              echo "Building redacted resume"
-            fi
-
-            latexmk -pdf main.tex
+            export SOPS_AGE_KEY_FILE="''${SOPS_AGE_KEY_FILE:-$HOME/.config/sops/age/resume-keys.txt}"
+            just build
             cp build/main.pdf "$OLDPWD/resume.pdf"
           '');
         };
         devShells.default = pkgs.mkShell {
-          env.SOPS_AGE_KEY_FILE = "$HOME/.config/sops/age/resume-keys.txt";
+          shellHook = ''
+            export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/resume-keys.txt"
+          '';
           packages = with pkgs; [
             texliveFull
             texlab
