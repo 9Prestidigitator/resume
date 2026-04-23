@@ -64,6 +64,7 @@
 
             sops
             just
+            prettierd
 
             nixd
             alejandra
