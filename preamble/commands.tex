@@ -1,0 +1,69 @@
+\makeatletter
+
+\newcommand{\setsecret}[2]{%
+  \expandafter\def\csname secretdata@#1\endcsname{#2}%
+}
+
+\newcommand{\redactbox}[1][8em]{%
+  \begingroup
+  \setlength{\fboxsep}{0pt}%
+  \colorbox{black}{\rule{0pt}{1.2ex}\hspace{#1}}%
+  \endgroup
+}
+
+\newcommand{\secretwidth}[1]{%
+  \@ifundefined{secretwidth@#1}
+  {8em}
+  {\csname secretwidth@#1\endcsname}%
+}
+
+\newcommand{\secret}[1]{%
+  \@ifundefined{secretdata@#1}
+  {\expandafter\redactbox\expandafter[\secretwidth{#1}]}
+  {\csname secretdata@#1\endcsname}%
+}
+
+\newcommand{\emailentry}{%
+  \@ifundefined{secretdata@email}
+  {\small \redactbox[14em]}
+  {\href{mailto:\csname secretdata@email\endcsname}{\small \csname
+  secretdata@email\endcsname}}%
+}
+
+\expandafter\def\csname secretwidth@phone\endcsname{7em}
+\expandafter\def\csname secretwidth@employer\endcsname{3em}
+\expandafter\def\csname secretwidth@clearance\endcsname{5em}
+\expandafter\def\csname secretwidth@itemone\endcsname{3em}
+
+\makeatother
+
+\newcommand{\resumeItem}[1]{
+\item{
+    {#1 \vspace{-3pt}}
+  }
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}
+\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-10pt}
+}
+\newcommand{\resumeSubheadingSmall}[2]{
+  \vspace{-2pt}
+\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+  \end{tabular*}\vspace{-10pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-3pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{
+\begin{itemize}[leftmargin=0.15in, label={}]}
+    \newcommand{\resumeSubHeadingListEnd}{
+\end{itemize}}
+\newcommand{\resumeItemListStart}{\vspace{0.07in}
+\begin{itemize}}
+    \newcommand{\resumeItemListEnd}{
+\end{itemize}\vspace{-2pt}}
