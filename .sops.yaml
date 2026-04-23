@@ -1,0 +1,7 @@
+keys:
+  - &resume age1vek2ttm4pwsykfxuanv3fee7hwxt8kmnp8wtphtepk6ccxt5zfnq69246z
+creation_rules:
+  - path_regex: data/.*\.tex(\.age)?$
+    key_groups:
+      - age:
+          - *resume
