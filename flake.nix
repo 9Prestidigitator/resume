@@ -30,31 +30,19 @@
             cd "$tmp/src"
 
             home_dir="$HOME"
-            key_file="''${SOPS_AGE_KEY_FILE:-$home_dir/.config/sops/age/resume-keys.txt}" 
-            
-            echo "Using key file: $key_file"
+
             ls -l data || true
-            if [ -f "$key_file" ]; then
-              if SOPS_AGE_KEY_FILE="$key_file" sops --decrypt data/personal.tex.age > data/personal.tex; then
-                echo "Building private resume"
-              else
-                echo "Decryption failed"
-                rm -f data/personal.tex
-                exit 1
-              fi
+            if sops --decrypt data/personal.tex.age > data/personal.tex; then
+              echo "Building private resume"
             else
-              echo "Key file not found: $key_file"
+              echo "Decryption failed, building redacted resume..."
               rm -f data/personal.tex
-              echo "Building redacted resume"
             fi
             latexmk -pdf main.tex
             cp build/main.pdf "$OLDPWD/resume.pdf"
           '');
         };
         devShells.default = pkgs.mkShell {
-          shellHook = ''
-            export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/resume-keys.txt"
-          '';
           packages = with pkgs; [
             texliveFull
             texlab

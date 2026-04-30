@@ -8,7 +8,7 @@ default:
 
 decrypt:
     rm -f {{ secret_plain }}
-    if [ -n "${SOPS_AGE_KEY_FILE:-}" ] && sops --decrypt {{ secret_enc }} > {{ secret_plain }} 2>/dev/null; then \
+    if sops --decrypt {{ secret_enc }} > {{ secret_plain }} 2>/dev/null; then \
       chmod 600 {{ secret_plain }}; \
       echo "Decrypted personal data"; \
     else \
