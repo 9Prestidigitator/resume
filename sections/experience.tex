@@ -6,17 +6,18 @@
 \resumeItemListStart
 \small
 \resumeItem{
-  Built high-throughput \textbf{C\#}/\textbf{.NET 10} hex decoder and
-  \textbf{Parquet} exporter for classified \secret{itemone}
-  maintenance sensor data, converting hex files into analytics-ready
-  columnar output at \textbf{2,656} files per minute, about \textbf{1
-  GB/s}, using multithreaded processing. Outputed \textbf{parquet}
-  tables were \textbf{85\%} more space efficient than hex data.
+  Built high-throughput \textbf{C\#} hex decoder and \textbf{Parquet}
+  exporter for classified \secret{itemone} maintenance sensor data,
+  converting hex files into analytics-ready columnar output at
+  \textbf{2,656} files per minute, about \textbf{1 GB/s}, using
+  multithreaded processing. Outputed \textbf{parquet} tables were
+  \textbf{85\%} more space efficient than hex data.
 }
 \resumeItem{
-  Designed a scalable \textbf{Docker Compose}/\textbf{NixOS} \textbf{ETL}
-  \secret{itemone} data pipeline with a central distributor and
-  worker containers, using \textbf{NATS} for messaging and
+  Designed a scalable \textbf{Docker Compose}/\textbf{NixOS}
+  \textbf{ETL} \secret{itemone} data pipeline, using \textbf{C\#}'s
+  dependency injection features, with a central distributor and
+  worker containers. Using \textbf{NATS} for messaging and
   observability; processed over \textbf{4 TB} of production records
   with minimal manual intervention.
 }
@@ -27,16 +28,9 @@
   \textbf{Polars} and \textbf{chrono}.
 }
 \resumeItem{
-  Utilized \textbf{Nix Flakes} and created open-source \textbf{Nix}
-  library, nix-nuget-feed, to create reproducible \textbf{.NET},
-  \textbf{Rust}, and \textbf{Python} development environments.
-  Established reproducible builds across team workflows.
-}
-\resumeItem{
-  Created several \textbf{Nix Derivations} for different
-  \textbf{.NET} and \textbf{Rust} packages for \textbf{ETL} pipeline
-  deployment. Used nuget-packageslock2nix to put \textbf{NuGet}
-  packages in the \textbf{Nix Store} and made available to build environments.
+  Created open-source \textbf{Nix} library, nix-nuget-feed, to create
+  reproducible \textbf{.NET} development environments by repackaging
+  \textbf{nuget} packages with their own derivations.
 }
 \resumeItem{
   Conducted correlation analysis on \secret{itemone} engineering
