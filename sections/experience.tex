@@ -10,16 +10,15 @@
   exporter for classified \secret{itemone} maintenance sensor data,
   converting hex files into analytics-ready columnar output at
   \textbf{2,656} files per minute, about \textbf{1 GB/s}, using
-  multithreaded processing. Outputed \textbf{parquet} tables were
-  \textbf{85\%} more space efficient than hex data.
+  multithreaded processing. Resulting \textbf{Parquet} tables were
+  \textbf{85\%} smaller than the raw hex data.
 }
 \resumeItem{
   Designed a scalable \textbf{Docker Compose}/\textbf{NixOS}
-  \textbf{ETL} \secret{itemone} data pipeline, using \textbf{C\#}'s
-  dependency injection features, with a central distributor and
-  worker containers. Using \textbf{NATS} for messaging and
-  observability; processed over \textbf{4 TB} of production records
-  with minimal manual intervention.
+  \textbf{ETL} \secret{itemone} data pipeline with \textbf{C\#}
+  dependency injection, a central distributor, worker containers, and
+  \textbf{NATS} messaging/observability; processed over \textbf{4 TB}
+  of production records with minimal manual intervention.
 }
 \resumeItem{
   Built a \textbf{Rust} datetime extrapolation library, integrated
@@ -28,9 +27,10 @@
   \textbf{Polars} and \textbf{chrono}.
 }
 \resumeItem{
-  Created open-source \textbf{Nix} library, nix-nuget-feed, to create
-  reproducible \textbf{.NET} development environments by repackaging
-  \textbf{nuget} packages with their own derivations.
+  Built open-source \textbf{Nix} library
+  \href{https://github.com/9Prestidigitator/nix-nuget-feed}{nix-nuget-feed},
+  repackaging Nix-derived \textbf{NuGet} packages into local feeds for
+  reproducible \textbf{.NET} development environments.
 }
 \resumeItem{
   Conducted correlation analysis on \secret{itemone} engineering
