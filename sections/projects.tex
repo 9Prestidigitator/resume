@@ -1,25 +1,23 @@
 \section{Self Directed Projects}
 \resumeSubHeadingListStart
 \resumeSubheading
-{Declarative Systems}{October 2025 -- Present}
+{REAPER Home Manager Flake}{October 2025 -- Present}
 {GitHub:9Prestidigitator/.nixos}{}
 \resumeItemListStart
 \small\resumeItem{
-  Migrated personal Arch Linux systems to \textbf{NixOS}, creating a
-  master dendritic flake configuration managing \textbf{5} hosts with varying
-  hardware configurations for development, music production, and
-  gaming workloads.
+  Built a \textbf{Nix Home Manager} module for \textbf{REAPER} that maps
+  plaintext \texttt{.ini} state into declarative options for reproducible
+  digital audio workstation configuration across \textbf{NixOS} hosts.
 }
 \resumeItem{
-  Packaged Debian-targeted open-source software (overwitch audio
-  hardware interface) for \textbf{NixOS}, creating custom derivation
-  to enable proprietary audio hardware support.
+  Wrote \textbf{Python} activation script to mask and merge
+  \textbf{REAPER} bitfield-backed settings, preserving user-managed
+  bits while applying Nix-managed configuration safely across rebuilds.
 }
 \resumeItem{
-  Implemented distributed builds, development shells, overlays, and
-  multi-user configurations. Established reproducible development
-  environments with pinned dependencies across \textbf{Rust},
-  \textbf{C\#}, \textbf{Python}, and \textbf{C++} toolchains.
+  Integrated the module into a flake-based workstation configuration
+  with pinned dependencies, overlays, development shells, and audio
+  production-specific host options.
 }
 \resumeItemListEnd
 \resumeSubheadingSmall
@@ -28,6 +26,8 @@
 \small\resumeItem{
   Created audio equalizer VST plugin in \textbf{C++} using
   \textbf{JUCE} framework for UI and digital signal processing.
+}
+\small\resumeItem{
   Implemented low cut, high cut (Butterworth filters), and parametric
   peak filters with adjustable frequency, gain, and slope controls.
 }

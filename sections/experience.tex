@@ -6,28 +6,31 @@
 \resumeItemListStart
 \small
 \resumeItem{
-  Built \textbf{C\#} ETL loader for \textbf{Oracle}-backed
-  \secret{itemone} data pipelines using \textbf{Nix} and stateless
-  state machines.
+  Built high-throughput \textbf{C\#}/\textbf{.NET 10} hex decoder and
+  \textbf{Parquet} exporter for classified \secret{itemone}
+  maintenance sensor data, converting hex files into analytics-ready
+  columnar output at \textbf{2,656} files per minute, about \textbf{1
+  GB/s}, using multithreaded processing. Outputed \textbf{parquet}
+  tables were \textbf{85\%} more space efficient than hex data.
 }
 \resumeItem{
-  Designed a scalable \textbf{Docker Compose}/\textbf{NixOS} pipeline
-  with a central distributor and worker containers, using
-  \textbf{NATS} for messaging and observability; processed over,
-  \textbf{10,000} or \textbf{4} terabytes worth of production records
-  with minimal
-  manual intervention.
+  Designed a scalable \textbf{Docker Compose}/\textbf{NixOS} \textbf{ETL}
+  \secret{itemone} data pipeline with a central distributor and
+  worker containers, using \textbf{NATS} for messaging and
+  observability; processed over \textbf{4 TB} of production records
+  with minimal manual intervention.
 }
 \resumeItem{
   Built a \textbf{Rust} datetime extrapolation library, integrated
   via \textbf{FFI} into an \textbf{ETL} pipeline, that corrected on average
-  \textbf{97\%} of temporal data inconsistencies.
+  \textbf{97\%} of temporal data inconsistencies, utilizing
+  \textbf{Polars} and \textbf{chrono}.
 }
 \resumeItem{
   Utilized \textbf{Nix Flakes} and created open-source \textbf{Nix}
   library, nix-nuget-feed, to create reproducible \textbf{.NET},
   \textbf{Rust}, and \textbf{Python} development environments.
-  Establishing reproducible builds across team workflows.
+  Established reproducible builds across team workflows.
 }
 \resumeItem{
   Created several \textbf{Nix Derivations} for different
